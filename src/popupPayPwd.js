@@ -8,9 +8,10 @@
 (function ($, window) {
 	// 默认配置
 	var DEFAULTS = {
-		random: false,
-		zIndex: 1000,
-		callback: ''
+		random: false, // 是否随机摆放1-9数字
+		zIndex: 1000, // 弹窗的层级，可根据不同页面配置
+		ciphertext: true, // 是否显示明文，默认密文*
+		callback: '' // 回调，输入满6位数字，触发回调
 	};
 
 	var popupPayPwd = function () {};
@@ -18,16 +19,19 @@
 		this.options = $.extend({}, DEFAULTS, options);
 		this.$html = $(this.template);
 		$('body').append(this.$html);
-		this.num();
-		this.add();
-		this.del();
+		// 绑定默认关闭按钮
 		this.$html.find('[data-role="close"]').on('click', $.proxy(function () {
 			this.close();
 		}, this));
+		// 显示弹窗
 		this.$html.css('zIndex', this.options.zIndex).addClass('show');
 		setTimeout($.proxy(function () {
 			this.$html.addClass('show-visible');
 		}, this), 0);
+		// 其他事件
+		this.num();
+		this.add();
+		this.del();
 	};
 	// 隐藏
 	popupPayPwd.prototype.close = function () {
@@ -90,8 +94,11 @@
 				return;
 			} else {
 				pwd += num; // 追加输入的数字
-				// $pwdVal.eq(pwd.length - 1).text('*'); // 密文（实际应用中应全部显示 *）
-				$pwdVal.eq(pwd.length - 1).text(num); // 明文（测试）
+				if ($this.options.ciphertext) {
+					$pwdVal.eq(pwd.length - 1).text('*'); // 密文
+				} else {
+					$pwdVal.eq(pwd.length - 1).text(num); // 明文
+				}
 				$password.val(pwd); // 填入隐藏域
 			}
 			// 输入够6位数后立即执行需要做的事情，比如ajax提交

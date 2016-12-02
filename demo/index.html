@@ -8,11 +8,19 @@
 	<meta name="format-detection" content="telephone=no">
 	<meta name="author" content="orzhtml.github.io">
 	<title>orzhtml.github.io</title>
-	<link rel="stylesheet" href="../src/index.css">
+	<link rel="stylesheet" href="../src/popupPayPwd.css">
 	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+		
 		body {
 			padding: 20px;
+			-webkit-user-select: none;
 		}
+		
 		.btn {
 			background-color: #28A0F2;
 			border-radius: 25px;
@@ -41,7 +49,7 @@
 			PopupPayPwd.init({
 				zIndex: 1001,
 				callback: function (pwd) {
-					console.log(pwd);
+					console.log('你的密码是：' + pwd);
 					PopupPayPwd.close();
 				}
 			});

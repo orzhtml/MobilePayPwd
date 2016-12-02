@@ -1,13 +1,4 @@
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-
-body {
-	-webkit-user-select: none;
-}
-
+/*ui-dialog*/
 .ui-dialog {
 	background-color: rgba(0, 0, 0, 0.2);
 	display: none;
