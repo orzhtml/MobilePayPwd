@@ -1,0 +1,51 @@
+<!doctype html>
+<html class="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="author" content="orzhtml.github.io">
+	<title>orzhtml.github.io</title>
+	<link rel="stylesheet" href="../src/index.css">
+	<style>
+		body {
+			padding: 20px;
+		}
+		.btn {
+			background-color: #28A0F2;
+			border-radius: 25px;
+			color: #fff;
+			display: inline-block;
+			height: 40px;
+			line-height: 20px;
+			padding: 10px;
+			text-align: center;
+		}
+		
+		.btn:active {
+			background-color: rgba(68, 172, 243, .7);
+			color: #fff;
+		}
+	</style>
+</head>
+
+<body>
+	<a class="btn" id="btn">去支付</a>
+	<script src="../src/jquery-2.1.4.min.js"></script>
+	<script src="../src/popupPayPwd.js"></script>
+	<script>
+		var PopupPayPwd = new $.PopupPayPwd();
+		$('#btn').on('click', function () {
+			PopupPayPwd.init({
+				zIndex: 1001,
+				callback: function (pwd) {
+					console.log(pwd);
+					PopupPayPwd.close();
+				}
+			});
+		});
+	</script>
+</body>
+</html>
