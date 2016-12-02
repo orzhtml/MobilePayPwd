@@ -3,5 +3,5 @@
 ### 转载请保留原文链接地址
 
 示例图：
-![](https://github.com/orzhtml/MobilePayPwd/src/img/2016-12-02_15.14.59.png)
+![](https://raw.githubusercontent.com/orzhtml/MobilePayPwd/master/src/img/2016-12-02_15.14.59.png)
 
