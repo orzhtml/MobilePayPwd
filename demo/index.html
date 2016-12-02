@@ -47,6 +47,7 @@
 		var PopupPayPwd = new $.PopupPayPwd();
 		$('#btn').on('click', function () {
 			PopupPayPwd.init({
+				random: true,
 				zIndex: 1001,
 				callback: function (pwd) {
 					console.log('你的密码是：' + pwd);
